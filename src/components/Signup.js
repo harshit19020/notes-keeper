@@ -7,7 +7,7 @@ const Signup = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const {name, email, password} = credentials;
+        const {name, email, password, cpassword} = credentials;
         const response = await fetch("http://localhost:5000/api/auth/createUser", {
             method: 'POST',
             headers: {
@@ -17,7 +17,10 @@ const Signup = (props) => {
         });
         const json = await response.json()
         console.log(json);
-        if (json.success){
+        if(password !== cpassword){
+            props.showAlert("password and confirm password should be same", "danger")
+        }
+        else if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken); 
             history.push("/");

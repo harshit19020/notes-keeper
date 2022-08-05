@@ -7,6 +7,8 @@ const app = express()
 const port = 5000
 
 app.use(cors())
+
+// to use req.body we need to use this function
 app.use(express.json())
 
 app.get('/', (req, res) => {
