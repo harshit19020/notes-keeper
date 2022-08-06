@@ -53,8 +53,8 @@ const NoteState = (props) => {
                 "auth-token": localStorage.getItem('token')
             }
         });
-        const json = response.json();
-        console.log(json)
+        // const json = response.json();
+        // console.log(json)
 
 
         // console.log("Deleting the note with id" + id);
